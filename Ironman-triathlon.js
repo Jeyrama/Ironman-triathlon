@@ -39,3 +39,5 @@ function iTri(dist){
   if (dist < totalDist) return {'Run': `Nearly there!`};
   return "You're done! Stop running!";
 }
+
+// or

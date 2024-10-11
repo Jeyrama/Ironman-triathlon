@@ -26,3 +26,6 @@ Finally, if the athlete has completed te distance, return "You're done! Stop run
 
 All distance should be calculated to two decimal places.
 */
+
+
+// Solution

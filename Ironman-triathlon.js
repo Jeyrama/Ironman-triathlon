@@ -41,3 +41,38 @@ function iTri(dist){
 }
 
 // or
+
+const raceInfo = [
+  {type:'Swim', ml: 2.4}, 
+  {type:'Bike', ml: 112}, 
+  {type:'Run', ml: 26.2}, 
+];
+
+const resultMiles = raceInfo.reduce((a,b) => Number(a) + Number(b.ml),0);
+
+const iTri = (s) => {
+//its gonna be a long day!
+// edge cases
+console.log(s);
+  if( s >= resultMiles) {
+    return `You're done! Stop running!`; 
+  } else if(s === 0) {
+    return 'Starting Line... Good Luck!';
+  } else if ( resultMiles - s  <= 10) {
+    return { 'Run': 'Nearly there!' };
+  } 
+  
+  const togo = `${(resultMiles - s).toFixed(2)} to go!`;
+  let key = raceInfo[raceInfo.length - 1].type;
+
+  if( s <= raceInfo[0].ml) {
+    return {[raceInfo[0].type] : togo};
+  }
+  for(let item of raceInfo) {
+    if(s <= Number(item.ml)) {
+      key = item.type;
+      break;
+    }
+  }
+  return {[key] : togo};
+}
